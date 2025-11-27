@@ -1,0 +1,36 @@
+Exercise 1)
+
+In “Magic the Gathering” a player keeps track of his collection recording for each card the purchase price, card condition (poor, good, mint) and current card market values. Write a program in ARM assembly language that analyzes the player collection (it must work and output the correct result).
+
+Cards	DCD	0x134, 3, 275, 0x2B9, 0xDC, 151, 2087
+Condition	DCD	2087, 2, 275, 0x0, 308, 0x1, 0xDC, 2, 151, 2, 0x3, 0, 697, 2
+Purchase price	DCD	0x3, 2000, 0x113, 2, 151, 9, 0x134, 45, 2087, 17, 220, 5, 697, 350
+Current price	DCD	0xDC, 3, 151, 16, 3, 3300, 697, 420, 308, 63, 275, 1, 0x827, 3
+#Cards	DCB	7
+
+Where:
+•	Cards is a table where each entry consists of a card identifier.
+•	Condition is a table where each entry consists of two integer values: the ID of the card (4 bytes) and the condition of the corresponding card:
+o	0:	POOR
+o	1:	GOOD
+o	2:	MINT
+•	Purchase price is a table where each entry consists of two integer values: the ID of the card (4 bytes) and the value at which the card was originally purchased.
+•	Current price is a table where each entry consists of two integer values: the ID of the card (4 bytes) and the current market value price.
+•	#Cards is a 1-byte constant and indicate the number of cards in the player’s collection.
+
+Compute the number of cards that the player purchased at a lower price than the current price and store it in register R11. Then for each of these cards compute the difference of current – purchase price, sum it to the other cards, and store it in register R10.
+
+Note: The constant data section must be defined in the code section, with a 2byte alignment and 4096 boundary zero bytes.
+Example:
+
+		…
+		// ALIGNMENT 
+		// BOUNDARY (SPACE ….) 
+		MY DATA
+		// BOUNDARY (SPACE ….) 
+		..
+ALIGN 1
+ALIGN 2
+
+
+
